@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import mermaid from "astro-mermaid";
 import { existsSync, readFileSync } from "node:fs";
 
 // Sidebar gerada por scripts/fetch-content.mjs a partir de labs.config.json
@@ -14,6 +15,10 @@ export default defineConfig({
   site: "https://caramelotech.com.br",
   base: "/labs",
   integrations: [
+    mermaid({
+      theme: "forest",
+      autoTheme: true,
+    }),
     starlight({
       title: "Caramelo Tech",
       customCss: ["./src/styles/custom.css"],
